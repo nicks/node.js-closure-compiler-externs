@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's tls module. Depends on the stream module.
  * @see http://nodejs.org/api/tls.html
  * @see https://github.com/joyent/node/blob/master/lib/tls.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,35 +27,59 @@
  END_NODE_INCLUDE
  */
 
+var crypto = require('crypto');
+var events = require('events');
+var net = require('net');
+var stream = require('stream');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var tls = {};
 
 /**
- * @typedef {{pfx: (string|buffer.Buffer), key: (string|buffer.Buffer), passphrase: string, cert: (string|buffer.Buffer), ca: Array.<string|buffer.Buffer>, crl: (string|Array.<string>), ciphers: string, honorCipherOrder: boolean, requestCert: boolean, rejectUnauthorized: boolean, NPNProtocols: (Array|buffer.Buffer), SNICallback: function(string), sessionIdContext: string}}
+ * @constructor
  */
-tls.CreateOptions;
+tls.CreateOptions = function () {};
+
+/** @type {boolean} */
+tls.CreateOptions.prototype.honorCipherOrder;
+
+/** @type {boolean} */
+tls.CreateOptions.prototype.requestCert;
+
+/** @type {boolean} */
+tls.CreateOptions.prototype.rejectUnauthorized;
+
+/** @type {Array|Buffer} */
+tls.CreateOptions.prototype.NPNProtocols;
+
+/** @type {function(string)} */
+tls.CreateOptions.prototype.SNICallback;
+
+/** @type {string} */
+tls.CreateOptions.prototype.sessionIdContext;
 
 /**
- * 
+ *
  * @param {tls.CreateOptions} options
  * @param {function(...)=} secureConnectionListener
  * @return {tls.Server}
  */
-tls.createServer = function(options, secureConnectionListener) {};
+tls.createServer;
 
 /**
- * @typedef {{host: string, port: number, socket: *, pfx: (string|buffer.Buffer), key: (string|buffer.Buffer), passphrase: string, cert: (string|buffer.Buffer), ca: Array.<string>, rejectUnauthorized: boolean, NPNProtocols: Array.<string|buffer.Buffer>, servername: string}}
+ * @typedef {{host: string, port: number, socket: *, pfx: (string|Buffer), key: (string|Buffer), passphrase: string, cert: (string|Buffer), ca: Array.<string>, rejectUnauthorized: boolean, NPNProtocols: Array.<string|Buffer>, servername: string}}
  */
 tls.ConnectOptions;
 
 /**
- * 
+ *
  * @param {number|tls.ConnectOptions} port
  * @param {(string|tls.ConnectOptions|function(...))=} host
  * @param {(tls.ConnectOptions|function(...))=} options
  * @param {function(...)=} callback
+ * @return {void}
  */
 tls.connect = function(port, host, options, callback) {};
 
@@ -67,7 +90,7 @@ tls.connect = function(port, host, options, callback) {};
  * @param {boolean=} rejectUnauthorized
  * @return {tls.SecurePair}
  */
-tls.createSecurePair = function(credentials, isServer, requestCert, rejectUnauthorized) {};
+tls.createSecurePair;
 
 /**
  * @constructor
@@ -83,7 +106,8 @@ tls.Server = function() {};
 
 /**
  * @param {string} hostname
- * @param {string|buffer.Buffer} credentials
+ * @param {string|Buffer} credentials
+ * @return {void}
  */
 tls.Server.prototype.addContext = function(hostname, credentials) {};
 
@@ -106,17 +130,17 @@ tls.CleartextStream.prototype.authorizationError;
 /**
  * @return {Object.<string,(string|Object.<string,string>)>}
  */
-tls.CleartextStream.prototype.getPeerCertificate = function() {};
+tls.CleartextStream.prototype.getPeerCertificate;
 
 /**
  * @return {{name: string, version: string}}
  */
-tls.CleartextStream.prototype.getCipher = function() {};
+tls.CleartextStream.prototype.getCipher;
 
 /**
  * @return {{port: number, family: string, address: string}}
  */
-tls.CleartextStream.prototype.address = function() {};
+tls.CleartextStream.prototype.address;
 
 /**
  * @type {string}
@@ -127,3 +151,5 @@ tls.CleartextStream.prototype.remoteAddress;
  * @type {number}
  */
 tls.CleartextStream.prototype.remotePort;
+
+module.exports = tls;

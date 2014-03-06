@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's vm module.
  * @see http://nodejs.org/api/vm.html
  * @see https://github.com/joyent/node/blob/master/lib/vm.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var vm = {};
 
@@ -42,28 +41,30 @@ vm.Context = function() {}; // Does not really exist
  * @param {string} code
  * @param {string=} filename
  */
-vm.runInThisContext = function(code, filename) {};
+vm.runInThisContext;
 
 /**
  * @param {string} code
  * @param {Object.<string,*>=} sandbox
  * @param {string=} filename
+ * @return {void}
  */
-vm.runInNewContext = function(code, sandbox, filename) {};
+vm.runInNewContext;
 
 /**
  * @param {string} code
  * @param {vm.Context} context
  * @param {string=} filename
+ * @return {void}
  */
-vm.runInContext = function(code, context, filename) {};
+vm.runInContext;
 
 /**
  * @param {Object.<string,*>=} initSandbox
  * @return {vm.Context}
  * @nosideeffects
  */
-vm.createContext = function(initSandbox) {};
+vm.createContext;
 
 /**
  * @constructor
@@ -76,13 +77,17 @@ vm.Script = function() {};
  * @return {vm.Script}
  * @nosideeffects
  */
-vm.createScript = function(code, filename) {};
+vm.createScript;
 
 /**
+ * @return {void}
  */
-vm.Script.prototype.runInThisContext = function() {};
+vm.Script.prototype.runInThisContext;
 
 /**
  * @param {Object.<string,*>=} sandbox
+ * @return {void}
  */
-vm.Script.prototype.runInNewContext = function(sandbox) {};
+vm.Script.prototype.runInNewContext;
+
+module.exports = vm;

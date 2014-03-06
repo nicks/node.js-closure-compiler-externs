@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's fs module. Depends on the stream and events module.
  * @see http://nodejs.org/api/fs.html
  * @see https://github.com/joyent/node/blob/master/lib/fs.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,123 +27,144 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+var stream = require('stream');
+
+/** @const */
 var fs = {};
 
 /**
  * @param {string} oldPath
  * @param {string} newPath
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.rename = function(oldPath, newPath, callback) {};
+fs.rename;
 
 /**
  * @param {string} oldPath
  * @param {string} newPath
+ * @return {void}
  */
-fs.renameSync = function(oldPath, newPath) {};
+fs.renameSync;
 
 /**
  * @param {*} fd
  * @param {number} len
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.truncate = function(fd, len, callback) {};
+fs.truncate;
 
 /**
  * @param {*} fd
  * @param {number} len
+ * @return {void}
  */
-fs.truncateSync = function(fd, len) {};
+fs.truncateSync;
 
 /**
  * @param {string} path
  * @param {number} uid
  * @param {number} gid
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.chown = function(path, uid, gid, callback) {};
+fs.chown;
 
 /**
  * @param {string} path
  * @param {number} uid
  * @param {number} gid
+ * @return {void}
  */
-fs.chownSync = function(path, uid, gid) {};
+fs.chownSync;
 
 /**
  * @param {*} fd
  * @param {number} uid
  * @param {number} gid
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.fchown = function(fd, uid, gid, callback) {};
+fs.fchown;
 
 /**
  * @param {*} fd
  * @param {number} uid
  * @param {number} gid
+ * @return {void}
  */
-fs.fchownSync = function(fd, uid, gid) {};
+fs.fchownSync;
 
 /**
  * @param {string} path
  * @param {number} uid
  * @param {number} gid
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.lchown = function(path, uid, gid, callback) {};
+fs.lchown;
 
 /**
  * @param {string} path
  * @param {number} uid
  * @param {number} gid
+ * @return {void}
  */
-fs.lchownSync = function(path, uid, gid) {};
+fs.lchownSync;
 
 /**
  * @param {string} path
  * @param {number} mode
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.chmod = function(path, mode, callback) {};
+fs.chmod;
 
 /**
  * @param {string} path
  * @param {number} mode
+ * @return {void}
  */
-fs.chmodSync = function(path, mode) {};
+fs.chmodSync;
 
 /**
  * @param {*} fd
  * @param {number} mode
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.fchmod = function(fd, mode, callback) {};
+fs.fchmod;
 
 /**
  * @param {*} fd
  * @param {number} mode
+ * @return {void}
  */
-fs.fchmodSync = function(fd, mode) {};
+fs.fchmodSync;
 
 /**
  * @param {string} path
  * @param {number} mode
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.lchmod = function(path, mode, callback) {};
+fs.lchmod;
 
 /**
  * @param {string} path
  * @param {number} mode
+ * @return {void}
  */
-fs.lchmodSync = function(path, mode) {};
+fs.lchmodSync;
 
 /**
  * @param {string} path
  * @param {function(string, fs.Stats)=} callback
+ * @return {void}
  */
-fs.stat = function(path, callback) {};
+fs.stat;
 
 /**
  * @param {string} path
@@ -156,8 +176,9 @@ fs.statSync = function(path) {}
 /**
  * @param {*} fd
  * @param {function(string, fs.Stats)=} callback
+ * @return {void}
  */
-fs.fstat = function(fd, callback) {};
+fs.fstat;
 
 /**
  * @param {*} fd
@@ -169,8 +190,9 @@ fs.fstatSync = function(fd) {}
 /**
  * @param {string} path
  * @param {function(string, fs.Stats)=} callback
+ * @return {void}
  */
-fs.lstat = function(path, callback) {};
+fs.lstat;
 
 /**
  * @param {string} path
@@ -183,49 +205,55 @@ fs.lstatSync = function(path) {}
  * @param {string} srcpath
  * @param {string} dstpath
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.link = function(srcpath, dstpath, callback) {};
+fs.link;
 
 /**
  * @param {string} srcpath
  * @param {string} dstpath
+ * @return {void}
  */
-fs.linkSync = function(srcpath, dstpath) {};
+fs.linkSync;
 
 /**
  * @param {string} srcpath
  * @param {string} dstpath
  * @param {string=} type
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.symlink = function(srcpath, dstpath, type, callback) {};
+fs.symlink;
 
 /**
  * @param {string} srcpath
  * @param {string} dstpath
  * @param {string=} type
+ * @return {void}
  */
-fs.symlinkSync = function(srcpath, dstpath, type) {};
+fs.symlinkSync;
 
 /**
  * @param {string} path
  * @param {function(string, string)=} callback
+ * @return {void}
  */
-fs.readlink = function(path, callback) {};
+fs.readlink;
 
 /**
  * @param {string} path
  * @return {string}
  * @nosideeffects
  */
-fs.readlinkSync = function(path) {};
+fs.readlinkSync;
 
 /**
  * @param {string} path
  * @param {Object.<string,string>|function(string, string)=} cache
  * @param {function(string, string)=} callback
+ * @return {void}
  */
-fs.realpath = function(path, cache, callback) {};
+fs.realpath;
 
 /**
  * @param {string} path
@@ -233,74 +261,84 @@ fs.realpath = function(path, cache, callback) {};
  * @return {string}
  * @nosideeffects
  */
-fs.realpathSync = function(path, cache) {};
+fs.realpathSync;
 
 /**
  * @param {string} path
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.unlink = function(path, callback) {};
+fs.unlink;
 
 /**
  * @param {string} path
+ * @return {void}
  */
-fs.unlinkSync = function(path) {};
+fs.unlinkSync;
 
 /**
  * @param {string} path
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.rmdir = function(path, callback) {};
+fs.rmdir;
 
 /**
  * @param {string} path
+ * @return {void}
  */
-fs.rmdirSync = function(path) {};
+fs.rmdirSync;
 
 /**
  * @param {string} path
  * @param {number=} mode
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.mkdir = function(path, mode, callback) {};
+fs.mkdir;
 
 /**
  * @param {string} path
  * @param {number=} mode
+ * @return {void}
  */
-fs.mkdirSync = function(path, mode) {};
+fs.mkdirSync;
 
 /**
  * @param {string} path
  * @param {function(string,Array.<string>)=} callback
+ * @return {void}
  */
-fs.readdir = function(path, callback) {};
+fs.readdir;
 
 /**
  * @param {string} path
  * @return {Array.<string>}
  * @nosideeffects
  */
-fs.readdirSync = function(path) {};
+fs.readdirSync;
 
 /**
  * @param {*} fd
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.close = function(fd, callback) {};
+fs.close;
 
 /**
  * @param {*} fd
+ * @return {void}
  */
-fs.closeSync = function(fd) {};
+fs.closeSync;
 
 /**
  * @param {string} path
  * @param {string} flags
  * @param {number=} mode
  * @param {function(string, *)=} callback
+ * @return {void}
  */
-fs.open = function(path, flags, mode, callback) {};
+fs.open;
 
 /**
  * @param {string} path
@@ -309,50 +347,56 @@ fs.open = function(path, flags, mode, callback) {};
  * @return {*}
  * @nosideeffects
  */
-fs.openSync = function(path, flags, mode) {};
+fs.openSync;
 
 /**
  * @param {string} path
  * @param {number|Date} atime
  * @param {number|Date} mtime
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.utimes = function(path, atime, mtime, callback) {};
+fs.utimes;
 
 /**
  * @param {string} path
  * @param {number|Date} atime
  * @param {number|Date} mtime
+ * @return {void}
  * @nosideeffects
  */
-fs.utimesSync = function(path, atime, mtime) {};
+fs.utimesSync;
 
 /**
  * @param {*} fd
  * @param {number|Date} atime
  * @param {number|Date} mtime
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.futimes = function(fd, atime, mtime, callback) {};
+fs.futimes;
 
 /**
  * @param {*} fd
  * @param {number|Date} atime
  * @param {number|Date} mtime
+ * @return {void}
  * @nosideeffects
  */
-fs.futimesSync = function(fd, atime, mtime) {};
+fs.futimesSync;
 
 /**
  * @param {*} fd
  * @param {function(...)=} callback
+ * @return {void}
  */
-fs.fsync = function(fd, callback) {};
+fs.fsync;
 
 /**
  * @param {*} fd
+ * @return {void}
  */
-fs.fsyncSync = function(fd) {};
+fs.fsyncSync;
 
 /**
  * @param {*} fd
@@ -361,8 +405,9 @@ fs.fsyncSync = function(fd) {};
  * @param {number} length
  * @param {number} position
  * @param {function(string, number, *)=} callback
+ * @return {void}
  */
-fs.write = function(fd, buffer, offset, length, position, callback) {};
+fs.write;
 
 /**
  * @param {*} fd
@@ -372,7 +417,7 @@ fs.write = function(fd, buffer, offset, length, position, callback) {};
  * @param {number} position
  * @return {number}
  */
-fs.writeSync = function(fd, buffer, offset, length, position) {};
+fs.writeSync;
 
 /**
  * @param {*} fd
@@ -381,8 +426,9 @@ fs.writeSync = function(fd, buffer, offset, length, position) {};
  * @param {number} length
  * @param {number} position
  * @param {function(string, number, *)=} callback
+ * @return {void}
  */
-fs.read = function(fd, buffer, offset, length, position, callback) {};
+fs.read;
 
 /**
  * @param {*} fd
@@ -393,132 +439,142 @@ fs.read = function(fd, buffer, offset, length, position, callback) {};
  * @return {number}
  * @nosideeffects
  */
-fs.readSync = function(fd, buffer, offset, length, position) {};
+fs.readSync;
 
 /**
  * @param {string} filename
  * @param {string|function(string, *)=}encoding
  * @param {function(string, *)=} callback
+ * @return {void}
  */
-fs.readFile = function(filename, encoding, callback) {};
+fs.readFile;
 
 /**
  * @param {string} filename
  * @param {string=} encoding
+ * @return {string|Buffer}
  * @nosideeffects
  */
-fs.readFileSync = function(filename, encoding) {};
+fs.readFileSync;
 
 /**
  * @param {string} filename
  * @param {*} data
  * @param {string|function(string)=} encoding
  * @param {function(string)=} callback
+ * @return {void}
  */
-fs.writeFile = function(filename, data, encoding, callback) {};
+fs.writeFile;
 
 /**
  * @param {string} filename
  * @param {*} data
  * @param {string=} encoding
+ * @return {void}
  */
-fs.writeFileSync = function(filename, data, encoding) {};
+fs.writeFileSync;
 
 /**
  * @param {string} filename
  * @param {*} data
  * @param {string|function(string)=} encoding
  * @param {function(string)=} callback
+ * @return {void}
  */
-fs.appendFile = function(filename, data, encoding, callback) {};
+fs.appendFile;
 
 /**
  * @param {string} filename
  * @param {*} data
  * @param {string|function(string)=} encoding
+ * @return {void}
  */
-fs.appendFileSync = function(filename, data, encoding) {};
+fs.appendFileSync;
 
 /**
  * @param {string} filename
  * @param {{persistent: boolean, interval: number}|function(*,*)=} options
  * @param {function(*,*)=} listener
+ * @return {void}
  */
-fs.watchFile = function(filename, options, listener) {};
+fs.watchFile;
 
 /**
  * @param {string} filename
  * @param {function(string, string)=} listener
+ * @return {void}
  */
-fs.unwatchFile = function(filename, listener) {};
+fs.unwatchFile;
 
 /**
- * 
+ *
  * @param {string} filename
  * @param {{persistent: boolean}|function(string, string)=} options
  * @param {function(string, string)=} listener
  * @return {fs.FSWatcher}
  */
-fs.watch = function(filename, options, listener) {};
+fs.watch;
 
 /**
  * @param {string} path
  * @param {function(boolean)} callback
+ * @return {void}
  */
-fs.exists = function(path, callback) {};
+fs.exists;
 
 /**
  * @param {string} path
+ * @return {boolean}
  * @nosideeffects
  */
-fs.existsSync = function(path) {};
+fs.existsSync;
 
 /**
  * @constructor
  */
-fs.Stats = function() {};
+fs.Stats = function () {};
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isFile = function() {};
+fs.Stats.prototype.isFile;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isDirectory = function() {};
+fs.Stats.prototype.isDirectory;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isBlockDevice = function() {};
+fs.Stats.prototype.isBlockDevice;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isCharacterDevice = function() {};
+fs.Stats.prototype.isCharacterDevice;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isSymbolicLink = function() {};
+fs.Stats.prototype.isSymbolicLink;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isFIFO = function() {};
+fs.Stats.prototype.isFIFO;
 
 /**
  * @return {boolean}
  * @nosideeffects
  */
-fs.Stats.prototype.isSocket = function() {};
+fs.Stats.prototype.isSocket;
 
 /**
  * @type {number}
@@ -591,13 +647,13 @@ fs.Stats.prototype.ctime;
  * @return {fs.ReadStream}
  * @nosideeffects
  */
-fs.createReadStream = function(path, options) {};
+fs.createReadStream;
 
 /**
  * @constructor
  * @extends stream.ReadableStream
  */
-fs.ReadStream = function() {};
+fs.ReadStream = function () {};
 
 /**
  * @param {string} path
@@ -605,20 +661,21 @@ fs.ReadStream = function() {};
  * @return {fs.WriteStream}
  * @nosideeffects
  */
-fs.createWriteStream = function(path, options) {};
+fs.createWriteStream;
 
 /**
  * @constructor
  * @extends stream.WritableStream
  */
-fs.WriteStream = function() {};
+fs.WriteStream = function () {};
 
 /**
  * @constructor
  * @extends events.EventEmitter
  */
-fs.FSWatcher = function() {};
+fs.FSWatcher = function () {};
 
 /**
+ * @return {void}
  */
-fs.FSWatcher.prototype.close = function() {};
+fs.FSWatcher.prototype.close;

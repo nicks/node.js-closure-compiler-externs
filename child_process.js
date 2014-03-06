@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's child_process module. Depends on the events module.
  * @see http://nodejs.org/api/child_process.html
  * @see https://github.com/joyent/node/blob/master/lib/child_process.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,11 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+var stream = require('stream');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var child_process = {};
 
@@ -62,18 +64,21 @@ child_process.ChildProcess.prototype.pid;
 
 /**
  * @param {string=} signal
+ * @return {void}
  */
-child_process.ChildProcess.prototype.kill = function(signal) {};
+child_process.ChildProcess.prototype.kill;
 
 /**
  * @param {Object.<string,*>} message
  * @param {*} sendHandle
+ * @return {void}
  */
-child_process.ChildProcess.prototype.send = function(message, sendHandle) {};
+child_process.ChildProcess.prototype.send;
 
 /**
+ * @return {void}
  */
-child_process.ChildProcess.prototype.disconnect = function() {};
+child_process.ChildProcess.prototype.disconnect;
 
 /**
  * @typedef {{cwd: string, stdio: (Array|string), customFds: Array, env: Object.<string,*>, detached: boolean, uid: number, gid: number, encoding: string, timeout: number, maxBuffer: number, killSignal: string}}
@@ -86,24 +91,24 @@ child_process.Options;
  * @param {child_process.Options=} options
  * @return {child_process.ChildProcess}
  */
-child_process.ChildProcess.spawn = function(command, args, options) {};
+child_process.ChildProcess.spawn;
 
 /**
  * @param {string} command
- * @param {child_process.Options|function(Error, buffer.Buffer, buffer.Buffer)=} options
- * @param {function(Error, buffer.Buffer, buffer.Buffer)=} callback
+ * @param {child_process.Options|function(Error, Buffer, Buffer)=} options
+ * @param {function(Error, Buffer, Buffer)=} callback
  * @return {child_process.ChildProcess}
  */
-child_process.exec = function(command, options, callback) {};
+child_process.exec;
 
 /**
  * @param {string} file
  * @param {Array.<string>} args
  * @param {child_process.Options} options
- * @param {function(Error, buffer.Buffer, buffer.Buffer)} callback
+ * @param {function(Error, Buffer, Buffer)} callback
  * @return {child_process.ChildProcess}
  */
-child_process.execFile = function(file, args, options, callback) {};
+child_process.execFile;
 
 /**
  * @param {string} modulePath
@@ -111,4 +116,6 @@ child_process.execFile = function(file, args, options, callback) {};
  * @param {child_process.Options=} options
  * @return {child_process.ChildProcess}
  */
-child_process.fork = function(modulePath, args, options) {};
+child_process.fork;
+
+module.exports = child_process;

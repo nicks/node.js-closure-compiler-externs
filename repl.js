@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's repl module. Depends on the events and stream modules.
  * @see http://nodejs.org/api/repl.html
  * @see https://github.com/joyent/node/blob/master/lib/repl.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,11 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+var stream = require('stream');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var repl = {};
 
@@ -37,7 +39,7 @@ var repl = {};
  * @param {{prompt: ?string, input: ?stream.Readable, output: ?stream.Writable, terminal: ?boolean, eval: ?function(string), useColors: ?boolean, useGlobal: ?boolean, ignoreUndefined: ?boolean, writer: ?function(string)}} options
  * @return {repl.REPLServer}
  */
-repl.start = function(options) {};
+repl.start;
 
 /**
  * @constructor
@@ -49,3 +51,5 @@ repl.REPLServer = function() {};
  * @type {Object.<string,*>}
  */
 repl.REPLServer.prototype.context;
+
+module.exports = repl;

@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's cluster module. Depends on the events module.
  * @see http://nodejs.org/api/cluster.html
  * @see https://github.com/joyent/node/blob/master/lib/cluster.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,10 +27,13 @@
  END_NODE_INCLUDE
  */
 
+var child_process = require('child_process');
+var events = require('events');
+
 /**
- * @type events.EventEmitter
+ * @const
  */
-var cluster;
+var cluster = new events.EventEmitter();
 
 /**
  * @typedef {{exec: string, args: Array.<string>, silent: boolean}}
@@ -55,19 +57,21 @@ cluster.isWorker;
 
 /**
  * @param {cluster.Settings=} settings
+ * @return {void}
  */
-cluster.setupMaster = function(settings) {};
+cluster.setupMaster;
 
 /**
  * @param {Object.<string,*>} env
  * @return {cluster.Worker}
  */
-cluster.fork = function(env) {};
+cluster.fork;
 
 /**
  * @param {function()=} callback
+ * @return {void}
  */
-cluster.disconnect = function(callback) {};
+cluster.disconnect;
 
 /**
  * @type {?cluster.Worker}
@@ -103,13 +107,18 @@ cluster.Worker.prototype.suicide;
 /**
  * @param {Object} message
  * @param {*=} sendHandle
+ * @return {void}
  */
-cluster.Worker.prototype.send = function(message, sendHandle) {};
+cluster.Worker.prototype.send;
 
 /**
+ * @return {void}
  */
-cluster.Worker.prototype.destroy = function() {};
+cluster.Worker.prototype.destroy;
 
 /**
+ * @return {void}
  */
-cluster.Worker.prototype.disconnect = function() {};
+cluster.Worker.prototype.disconnect;
+
+module.exports = cluster;

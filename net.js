@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's net module. Depends on the events and buffer modules.
  * @see http://nodejs.org/api/net.html
  * @see https://github.com/joyent/node/blob/master/lib/net.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,10 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var net = {};
 
@@ -43,7 +44,7 @@ net.CreateOptions;
  * @param {function(...)=} connectionListener
  * @return {net.Server}
  */
-net.createServer = function(options, connectionListener) {};
+net.createServer;
 
 /**
  * @typedef {{port: ?number, host: ?string, localAddress: ?string, path: ?string, allowHalfOpen: ?boolean}}
@@ -54,15 +55,17 @@ net.ConnectOptions;
  * @param {net.ConnectOptions|number|string} arg1
  * @param {(function(...)|string)=} arg2
  * @param {function(...)=} arg3
+ * @return {void}
  */
-net.connect = function(arg1, arg2, arg3) {};
+net.connect;
 
 /**
  * @param {net.ConnectOptions|number|string} arg1
  * @param {(function(...)|string)=} arg2
  * @param {function(...)=} arg3
+ * @return {void}
  */
-net.createConnection = function(arg1, arg2, arg3) {};
+net.createConnection;
 
 /**
  * @constructor
@@ -71,23 +74,25 @@ net.createConnection = function(arg1, arg2, arg3) {};
 net.Server = function() {};
 
 /**
- * 
+ *
  * @param {number|*} port
  * @param {(string|number|function(...))=} host
  * @param {(number|function(...))=} backlog
  * @param {function(...)=} callback
+ * @return {void}
  */
-net.Server.prototype.listen = function(port, host, backlog, callback) {};
+net.Server.prototype.listen;
 
 /**
  * @param {function(...)=} callback
+ * @return {void}
  */
-net.Server.prototype.close = function(callback) {};
+net.Server.prototype.close;
 
 /**
  * @return {{port: number, family: string, address: string}}
  */
-net.Server.prototype.address = function() {};
+net.Server.prototype.address;
 
 /**
  * @type {number}
@@ -110,8 +115,9 @@ net.Socket = function(options) {};
  * @param {number|string|function(...)} port
  * @param {(string|function(...))=} host
  * @param {function(...)=} connectListener
+ * @return {void}
  */
-net.Socket.prototype.connect = function(port, host, connectListener) {};
+net.Socket.prototype.connect;
 
 /**
  * @type {number}
@@ -120,55 +126,64 @@ net.Socket.prototype.bufferSize;
 
 /**
  * @param {?string=} encoding
+ * @return {void}
  */
-net.Socket.prototype.setEncoding = function(encoding) {};
+net.Socket.prototype.setEncoding;
 
 /**
- * @param {string|buffer.Buffer} data
+ * @param {string|Buffer} data
  * @param {(string|function(...))=}encoding
  * @param {function(...)=} callback
+ * @return {void}
  */
-net.Socket.prototype.write = function(data, encoding, callback) {};
+net.Socket.prototype.write;
 
 /**
- * @param {(string|buffer.Buffer)=}data
+ * @param {(string|Buffer)=}data
  * @param {string=} encoding
+ * @return {void}
  */
-net.Socket.prototype.end = function(data, encoding) {};
+net.Socket.prototype.end;
 
 /**
+ * @return {void}
  */
 net.Socket.prototype.destroy = function() {};
 
 /**
+ * @return {void}
  */
 net.Socket.prototype.pause = function() {};
 
 /**
+ * @return {void}
  */
-net.Socket.prototype.resume = function() {};
+net.Socket.prototype.resume;
 
 /**
  * @param {number} timeout
  * @param {function(...)=} callback
+ * @return {void}
  */
-net.Socket.prototype.setTimeout = function(timeout, callback) {};
+net.Socket.prototype.setTimeout;
 
 /**
  * @param {boolean=} noDelay
+ * @return {void}
  */
-net.Socket.prototype.setNoDelay = function(noDelay) {};
+net.Socket.prototype.setNoDelay;
 
 /**
  * @param {(boolean|number)=} enable
  * @param {number=} initialDelay
+ * @return {void}
  */
-net.Socket.prototype.setKeepAlive = function(enable, initialDelay) {};
+net.Socket.prototype.setKeepAlive;
 
 /**
  * @return {string}
  */
-net.Socket.prototype.address = function() {};
+net.Socket.prototype.address;
 
 /**
  * @type {?string}
@@ -194,16 +209,18 @@ net.Socket.prototype.bytesWritten;
  * @param {*} input
  * @return {number}
  */
-net.isIP = function(input) {};
+net.isIP;
 
 /**
  * @param {*} input
  * @return {boolean}
  */
-net.isIPv4 = function(input) {};
+net.isIPv4;
 
 /**
  * @param {*} input
  * @return {boolean}
  */
-net.isIPv6 = function(input) {};
+net.isIPv6;
+
+module.exports = net;

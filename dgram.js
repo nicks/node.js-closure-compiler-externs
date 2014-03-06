@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's dgram module. Depends on the events module.
  * @see http://nodejs.org/api/dgram.html
  * @see https://github.com/joyent/node/blob/master/lib/dgram.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,10 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var dgram = {};
 
@@ -38,7 +39,7 @@ var dgram = {};
  * @param {function(...)=} callback
  * @return {dgram.Socket}
  */
-dgram.createSocket = function(type, callback) {};
+dgram.createSocket;
 
 /**
  * @constructor
@@ -47,60 +48,69 @@ dgram.createSocket = function(type, callback) {};
 dgram.Socket = function() {};
 
 /**
- * @param {buffer.Buffer} buf
+ * @param {Buffer} buf
  * @param {number} offset
  * @param {number} length
  * @param {number} port
  * @param {string} address
  * @param {function(...)=} callback
+ * @return {void}
  */
-dgram.Socket.prototype.send = function(buf, offset, length, port, address, callback) {};
-
-/** 
- * @param {number} port
- * @param {string=} address
- */
-dgram.Socket.prototype.bind = function(port, address) {};
+dgram.Socket.prototype.send;
 
 /**
+ * @param {number} port
+ * @param {string=} address
+ * @return {void}
  */
-dgram.Socket.prototype.close = function() {};
+dgram.Socket.prototype.bind;
+
+/**
+ * @return {void}
+ */
+dgram.Socket.prototype.close;
 
 /**
  * @return {string}
  */
-dgram.Socket.prototype.address = function() {};
+dgram.Socket.prototype.address;
 
 /**
  * @param {boolean} flag
+ * @return {void}
  */
-dgram.Socket.prototype.setBroadcast = function(flag) {};
+dgram.Socket.prototype.setBroadcast;
 
 /**
  * @param {number} ttl
  * @return {number}
  */
-dgram.Socket.prototype.setTTL = function(ttl) {};
+dgram.Socket.prototype.setTTL;
 
 /**
  * @param {number} ttl
  * @return {number}
  */
-dgram.Socket.prototype.setMulticastTTL = function(ttl) {};
+dgram.Socket.prototype.setMulticastTTL;
 
 /**
  * @param {boolean} flag
+ * @return {void}
  */
-dgram.Socket.prototype.setMulticastLoopback = function(flag) {};
+dgram.Socket.prototype.setMulticastLoopback;
 
 /**
  * @param {string} multicastAddress
  * @param {string=} multicastInterface
+ * @return {void}
  */
-dgram.Socket.prototype.addMembership = function(multicastAddress, multicastInterface) {};
+dgram.Socket.prototype.addMembership;
 
 /**
  * @param {string} multicastAddress
  * @param {string=} multicastInterface
+ * @return {void}
  */
-dgram.Socket.prototype.dropMembership = function(multicastAddress, multicastInterface) {};
+dgram.Socket.prototype.dropMembership;
+
+module.exports = dgram;

@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's http module. Depends on the events module.
  * @see http://nodejs.org/api/http.html
  * @see https://github.com/joyent/node/blob/master/lib/http.js
- * @externs
  */
 
 /**
@@ -27,6 +26,11 @@ var http = require('http');
 END_NODE_INCLUDE
  */
 
+var events = require('events');
+var net = require('net');
+var stream = require('stream');
+
+/** @const */
 var http = {};
 
 /**
@@ -38,10 +42,10 @@ http.requestListener;
  * @param {http.requestListener=} listener
  * @return {http.Server}
  */
-http.createServer = function(listener) {};
+http.createServer;
 
 /**
- * @param {http.requestListener=} listener  
+ * @param {http.requestListener=} listener
  * @constructor
  * @extends events.EventEmitter
  */
@@ -52,11 +56,12 @@ http.Server = function(listener) {};
  * @param {(string|Function)=} hostnameOrCallback
  * @param {Function=} callback
  */
-http.Server.prototype.listen = function(portOrPath, hostnameOrCallback, callback) {};
+http.Server.prototype.listen;
 
 /**
+ * @return {void}
  */
-http.Server.prototype.close = function() {};
+http.Server.prototype.close;
 
 /**
  * @constructor
@@ -117,8 +122,9 @@ http.IncomingMessage.prototype.socket;
 /**
  * @param {number} msecs
  * @param {function()} callback
+ * @return {void}
  */
-http.IncomingMessage.prototype.setTimeout = function(msecs, callback) {};
+http.IncomingMessage.prototype.setTimeout;
 
 /**
  * @constructor
@@ -128,15 +134,16 @@ http.IncomingMessage.prototype.setTimeout = function(msecs, callback) {};
 http.ServerResponse = function() {};
 
 /**
+ * @return {void}
  */
-http.ServerResponse.prototype.writeContinue = function() {};
+http.ServerResponse.prototype.writeContinue;
 
 /**
  * @param {number} statusCode
  * @param {*=} reasonPhrase
  * @param {*=} headers
  */
-http.ServerResponse.prototype.writeHead = function(statusCode, reasonPhrase, headers) {};
+http.ServerResponse.prototype.writeHead;
 
 /**
  * @type {number}
@@ -146,36 +153,41 @@ http.ServerResponse.prototype.statusCode;
 /**
  * @param {string} name
  * @param {string} value
+ * @return {void}
  */
-http.ServerResponse.prototype.setHeader = function(name, value) {};
+http.ServerResponse.prototype.setHeader;
 
 /**
  * @param {string} name
  * @return {string|undefined} value
  */
-http.ServerResponse.prototype.getHeader = function(name) {};
+http.ServerResponse.prototype.getHeader;
 
 /**
  * @param {string} name
+ * @return {void}
  */
-http.ServerResponse.prototype.removeHeader = function(name) {};
+http.ServerResponse.prototype.removeHeader;
 
 /**
- * @param {string|Array|buffer.Buffer} chunk
+ * @param {string|Array|Buffer} chunk
  * @param {string=} encoding
+ * @return {void}
  */
-http.ServerResponse.prototype.write = function(chunk, encoding) {};
+http.ServerResponse.prototype.write;
 
 /**
  * @param {Object} headers
+ * @return {void}
  */
-http.ServerResponse.prototype.addTrailers = function(headers) {};
+http.ServerResponse.prototype.addTrailers;
 
 /**
- * @param {(string|Array|buffer.Buffer)=} data
+ * @param {(string|Array|Buffer)=} data
  * @param {string=} encoding
+ * @return {void}
  */
-http.ServerResponse.prototype.end = function(data, encoding) {};
+http.ServerResponse.prototype.end;
 
 /**
  * @constructor
@@ -185,34 +197,37 @@ http.ServerResponse.prototype.end = function(data, encoding) {};
 http.ClientRequest = function() {};
 
 /**
- * @param {string|Array|buffer.Buffer} chunk
+ * @param {string|Array|Buffer} chunk
  * @param {string=} encoding
+ * @return {void}
  */
-http.ClientRequest.prototype.write = function(chunk, encoding) {};
+http.ClientRequest.prototype.write;
 
 /**
- * @param {(string|Array|buffer.Buffer)=} data
+ * @param {(string|Array|Buffer)=} data
  * @param {string=} encoding
+ * @return {void}
  */
-http.ClientRequest.prototype.end = function(data, encoding) {};
+http.ClientRequest.prototype.end;
 
 /**
+ * @return {void}
  */
-http.ClientRequest.prototype.abort = function() {};
+http.ClientRequest.prototype.abort;
 
 /**
  * @param {Object} options
  * @param {function(http.IncomingMessage)} callback
  * @return {http.ClientRequest}
  */
-http.request = function(options, callback) {};
+http.request;
 
 /**
  * @param {Object} options
  * @param {function(http.IncomingMessage)} callback
  * @return {http.ClientRequest}
  */
-http.get = function(options, callback) {};
+http.get;
 
 /**
  * @constructor
@@ -239,3 +254,5 @@ http.Agent.prototype.requests;
  * @type {http.Agent}
  */
 http.globalAgent;
+
+module.exports = http;

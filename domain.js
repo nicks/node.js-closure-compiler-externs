@@ -18,12 +18,13 @@
  * @fileoverview Definitions for node's domain module. Depends on the events module.
  * @see http://nodejs.org/api/domain.html
  * @see https://github.com/joyent/node/blob/master/lib/domain.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
+var events = require('events');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var domain = {};
 
@@ -35,18 +36,18 @@ domain.active;
 /**
  * @return {domain.Domain}
  */
-domain.create = function() {};
+domain.create;
 
 /**
  * @constructor
  * @extends events.EventEmitter
  */
-domain.Domain = function() {};
+domain.Domain = function () {};
 
 /**
  * @param {function()} fn
  */
-domain.Domain.prototype.run = function(fn) {};
+domain.Domain.prototype.run;
 
 /**
  * @type {Array}
@@ -55,36 +56,43 @@ domain.Domain.prototype.members;
 
 /**
  * @param {events.EventEmitter} emitter
+ * @return {void}
  */
-domain.Domain.prototype.add = function(emitter) {};
+domain.Domain.prototype.add;
 
 /**
  * @param {events.EventEmitter} emitter
+ * @return {void}
  */
-domain.Domain.prototype.remove = function(emitter) {};
+domain.Domain.prototype.remove;
 
 /**
  * @param {function(...[*])} callback
  * @return {function(...[*])}
  */
-domain.Domain.prototype.bind = function(callback) {};
+domain.Domain.prototype.bind;
 
 /**
  * @param {function(...[*])} callback
  * @return {function(...[*])}
  */
-domain.Domain.prototype.intercept = function(callback) {};
+domain.Domain.prototype.intercept;
 
 /**
+ * @return {void}
  */
-domain.Domain.prototype.dispose = function() {};
+domain.Domain.prototype.dispose;
 
 // Undocumented
 
 /**
+ * @return {void}
  */
-domain.Domain.prototype.enter = function() {};
+domain.Domain.prototype.enter;
 
 /**
+ * @return {void}
  */
-domain.Domain.prototype.exit = function() {};
+domain.Domain.prototype.exit;
+
+module.exports = domain;

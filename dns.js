@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's dns module.
  * @see http://nodejs.org/api/dns.html
  * @see https://github.com/joyent/node/blob/master/lib/dns.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var dns = {};
 
@@ -37,63 +36,73 @@ var dns = {};
  * @param {string} domain
  * @param {string|function(Error,string,string)} family
  * @param {function(?Error,string,string)=} callback
+ * @return {void}
  */
-dns.lookup = function(domain, family, callback) {};
+dns.lookup;
 
 /**
  * @param {string} domain
  * @param {string|function(?Error,Array)} rrtype
- * @param {function(?Error,Array)=}callback
+ * @param {function(?Error,Array)=} callback
+ * @return {void}
  */
-dns.resolve = function(domain, rrtype, callback) {};
+dns.resolve;
+
+/**
+ * @param {string} domain
+ * @param {function(?Error,Array)} callback
+ * @return {void}
+ */
+dns.resolve4;
+
+/**
+ * @param {string} domain
+ * @param {function(?Error,Array)} callback
+ * @return {void}
+ */
+dns.resolve6;
 
 /**
  * @param {string} domain
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.resolve4 = function(domain, callback) {};
+dns.resolveMx;
 
 /**
  * @param {string} domain
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.resolve6 = function(domain, callback) {};
+dns.resolveTxt;
 
 /**
  * @param {string} domain
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.resolveMx = function(domain, callback) {};
+dns.resolveSrv;
 
 /**
  * @param {string} domain
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.resolveTxt = function(domain, callback) {};
+dns.resolveNs;
 
 /**
  * @param {string} domain
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.resolveSrv = function(domain, callback) {};
-
-/**
- * @param {string} domain
- * @param {function(?Error,Array)}callback
- */
-dns.resolveNs = function(domain, callback) {};
-
-/**
- * @param {string} domain
- * @param {function(?Error,Array)}callback
- */
-dns.resolveCname = function(domain, callback) {};
+dns.resolveCname;
 
 /**
  * @param {string} ip
  * @param {function(?Error,Array)}callback
+ * @return {void}
  */
-dns.reverse = function(ip, callback) {};
+dns.reverse;
 
 /**
  * @type {string}
@@ -238,3 +247,5 @@ dns.ADDRGETNETWORKPARAMS = 'EADDRGETNETWORKPARAMS';
  * @const
  */
 dns.CANCELLED = 'ECANCELLED';
+
+module.exports = dns;

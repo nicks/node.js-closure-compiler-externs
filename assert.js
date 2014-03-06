@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's assert module
  * @see http://nodejs.org/api/assert.html
  * @see https://github.com/joyent/node/blob/master/lib/assert.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -31,6 +30,7 @@
 /**
  * @param {*} value
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
 var assert = function(value, message) {};
@@ -45,71 +45,79 @@ assert.AssertionError = function(options) {};
 /**
  * @return {string}
  */
-assert.AssertionError.prototype.toString = function() {};
+assert.AssertionError.prototype.toString;
 
 /**
  * @param {*} value
  * @param {string=} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.ok = function(value, message) {};
+assert.ok;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
  * @param {string} operator
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.fail = function(actual, expected, message, operator) {};
+assert.fail;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.equal = function(actual, expected, message) {};
+assert.equal;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.notEqual = function(actual, expected, message) {};
+assert.notEqual;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.deepEqual = function(actual, expected, message) {};
+assert.deepEqual;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.notDeepEqual = function(actual, expected, message) {};
+assert.notDeepEqual;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.strictEqual = function(actual, expected, message) {};
+assert.strictEqual;
 
 /**
  * @param {*} actual
  * @param {*} expected
  * @param {string} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.notStrictEqual = function(actual, expected, message) {};
+assert.notStrictEqual;
 
 /**
  * @name assert.throws
@@ -117,21 +125,25 @@ assert.notStrictEqual = function(actual, expected, message) {};
  * @param {function()} block
  * @param {Function|RegExp|function(*)} error
  * @param {string=} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-// Error: .\assert.js:120: ERROR - Parse error. missing name after . operator
-// assert.throws = function(block, error, message) {};
+assert.throws;
 
 /**
  * @param {function()} block
  * @param {Function|RegExp|function(*)} error
  * @param {string=} message
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.doesNotThrow = function(block, error, message) {};
+assert.doesNotThrow;
 
 /**
  * @param {*} value
+ * @return {void}
  * @throws {assert.AssertionError}
  */
-assert.ifError = function(value) {};
+assert.ifError;
+
+module.exports = assert;

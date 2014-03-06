@@ -17,7 +17,6 @@
 /**
  * @fileoverview Definitions for node's path module.
  * @see http://nodejs.org/api/path.html
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,7 +27,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var path = {};
 
@@ -37,14 +36,14 @@ var path = {};
  * @return {string}
  * @nosideeffects
  */
-path.normalize = function(p) {};
+path.normalize;
 
 /**
  * @param {...string} var_args
  * @return {string}
  * @nosideeffects
  */
-path.join = function(var_args) {};
+path.join;
 
 /**
  * @param {string} from
@@ -52,7 +51,7 @@ path.join = function(var_args) {};
  * @return {string}
  * @nosideeffects
  */
-path.resolve = function(from, to) {};
+path.resolve;
 
 /**
  * @param {string} from
@@ -60,14 +59,14 @@ path.resolve = function(from, to) {};
  * @return {string}
  * @nosideeffects
  */
-path.relative = function(from, to) {};
+path.relative;
 
 /**
  * @param {string} p
  * @return {string}
  * @nosideeffects
  */
-path.dirname = function(p) {};
+path.dirname;
 
 /**
  * @param {string} p
@@ -75,16 +74,18 @@ path.dirname = function(p) {};
  * @return {string}
  * @nosideeffects
  */
-path.basename = function(p, ext) {};
+path.basename;
 
 /**
  * @param {string} p
  * @return {string}
  * @nosideeffects
  */
-path.extname = function(p) {};
+path.extname;
 
 /**
  * @type {string}
  */
 path.sep;
+
+module.exports = path;

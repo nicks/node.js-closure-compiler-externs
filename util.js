@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's util module. Depends on the stream module.
  * @see http://nodejs.org/api/util.html
  * @see https://github.com/joyent/node/blob/master/lib/util.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var util = {};
 
@@ -39,81 +38,82 @@ var util = {};
  * @return {string}
  * @nosideeffects
  */
-util.format = function(format, var_args) {};
+util.format;
 
 /**
  * @param {string} string
+ * @return {void}
  */
-util.debug = function(string) {};
+util.debug;
 
 /**
  * @param {...*} var_args
+ * @return {void}
  */
-util.error = function(var_args) {};
+util.error;
 
 /**
  * @param {...*} var_args
+ * @return {void}
  */
-util.puts = function(var_args) {};
+util.puts;
 
 /**
  * @param {...*} var_args
+ * @return {void}
  */
-util.print = function(var_args) {};
+util.print;
 
 /**
  * @param {string} string
+ * @return {void}
  */
-util.log = function(string) {};
+util.log;
 
 /**
  * @param {*} object
- * @param {boolean=} showHidden
- * @param {number=} depth
- * @param {boolean=} colors
+ * @param {{showHidden: (boolean|undefined),
+ *          depth: (number|null|undefined),
+ *          colors: (boolean|undefined),
+ *          customInspect: (boolean|undefined)}=} options
  * @return {string}
  * @nosideeffects
  */
-util.inspect = function(object, showHidden, depth, colors) {};
+util.inspect;
 
 /**
  * @param {*} object
  * @return {boolean}
  * @nosideeffects
  */
-util.isArray = function(object) {};
+util.isArray;
 
 /**
  * @param {*} object
  * @return {boolean}
  * @nosideeffects
  */
-util.isRegExp = function(object) {};
+util.isRegExp;
 
 /**
  * @param {*} object
  * @return {boolean}
  * @nosideeffects
  */
-util.isDate = function(object) {};
+util.isDate;
 
 /**
  * @param {*} object
  * @return {boolean}
  * @nosideeffects
  */
-util.isError = function(object) {};
-
-/**
- * @param {stream.ReadableStream} readableStream
- * @param {stream.WritableStream} writableStream
- * @param {function(...)=} callback
- * @deprecated
- */
-util.pump = function(readableStream, writableStream, callback) {};
+util.isError;
 
 /**
  * @param {Function} constructor
  * @param {Function} superConstructor
+ * @return {void}
  */
-util.inherits = function(constructor, superConstructor) {};
+util.inherits;
+
+module.exports = util;

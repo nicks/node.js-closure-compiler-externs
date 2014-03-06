@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's querystring module.
  * @see http://nodejs.org/api/querystring.html
  * @see https://github.com/joyent/node/blob/master/lib/querystring.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var querystring = {};
 
@@ -40,31 +39,35 @@ var querystring = {};
  * @return {string}
  * @nosideeffects
  */
-querystring.stringify = function(obj, sep, eq) {};
+querystring.stringify;
 
 /**
  * @param {string} str
  * @param {string=} sep
  * @param {string=} eq
  * @param {*=} options
+ * @return {Object.<string|!Array.<string>>}
  * @nosideeffects
  */
-querystring.parse = function(str, sep, eq, options) {};
+querystring.parse;
 
 /**
  * @param {string} str
  * @return {string}
  */
-querystring.escape = function(str) {};
+querystring.escape;
 
 /**
  * @param {string} str
  * @return {string}
  */
-querystring.unescape = function(str) {};
+querystring.unescape;
 
 /**
- * @param {buffer.Buffer} s
+ * @param {Buffer} s
  * @param {boolean} decodeSpaces
+ * @return {void}
  */
-querystring.unescapeBuffer = function(s, decodeSpaces) {};
+querystring.unescapeBuffer;
+
+module.exports = querystring;

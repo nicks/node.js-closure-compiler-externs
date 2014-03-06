@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's url module.
  * @see http://nodejs.org/api/url.html
  * @see https://github.com/joyent/node/blob/master/lib/url.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var url = {};
 
@@ -45,14 +44,14 @@ var URL;
  * @return {URL}
  * @nosideeffects
  */
-url.parse = function(urlStr, parseQueryString, slashesDenoteHost) {};
+url.parse;
 
 /**
  * @param {URL} urlObj
  * @return {string}
  * @nosideeffects
  */
-url.format = function(urlObj) {};
+url.format;
 
 /**
  * @param {string} from
@@ -60,4 +59,6 @@ url.format = function(urlObj) {};
  * @return {string}
  * @nosideeffects
  */
-url.resolve = function(from, to) {};
+url.resolve;
+
+module.exports = url;

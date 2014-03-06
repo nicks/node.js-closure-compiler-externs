@@ -17,7 +17,6 @@
 /**
  * @fileoverview Definitions for node's readline module. Depends on the events module.
  * @see http://nodejs.org/api/readline.html
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -27,8 +26,11 @@
  END_NODE_INCLUDE
  */
 
+var events = require('events');
+var stream = require('stream');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var readline = {};
 
@@ -36,7 +38,7 @@ var readline = {};
  * @param {{input: stream.ReadableStream, output: stream.WritableStream, completer: function(string, function(*, Array)=), terminal: boolean}} options
  * @return {readline.Interface}
  */
-readline.createInterface = function(options) {};
+readline.createInterface;
 
 /**
  * @constructor
@@ -47,34 +49,43 @@ readline.Interface = function() {};
 /**
  * @param {string} prompt
  * @param {number} length
+ * @return {void}
  */
-readline.Interface.prototype.setPrompt = function(prompt, length) {};
+readline.Interface.prototype.setPrompt;
 
 /**
  * @param {boolean=} preserveCursor
+ * @return {void}
  */
-readline.Interface.prototype.prompt = function(preserveCursor) {};
+readline.Interface.prototype.prompt;
 
 /**
  * @param {string} query
  * @param {function(string)} callback
+ * @return {void}
  */
-readline.Interface.prototype.question = function(query, callback) {};
+readline.Interface.prototype.question;
 
 /**
+ * @return {void}
  */
-readline.Interface.prototype.pause = function() {};
+readline.Interface.prototype.pause;
 
 /**
+ * @return {void}
  */
-readline.Interface.prototype.resume = function() {};
+readline.Interface.prototype.resume;
 
 /**
+ * @return {void}
  */
-readline.Interface.prototype.close = function() {};
+readline.Interface.prototype.close;
 
 /**
  * @param {string} data
  * @param {Object.<string,*>=} key
+ * @return {void}
  */
-readline.Interface.prototype.write = function(data, key) {};
+readline.Interface.prototype.write;
+
+module.exports = readline;

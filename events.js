@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's "events" module.
  * @see http://nodejs.org/api/events.html
  * @see https://github.com/joyent/node/blob/master/lib/events.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -29,7 +28,7 @@ END_NODE_INCLUDE
  */
 
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var events = {};
 
@@ -43,52 +42,53 @@ events.EventEmitter = function() {};
  * @param {function(...)} listener
  * @return {events.EventEmitter}
  */
-events.EventEmitter.prototype.addListener = function(event, listener) {};
+events.EventEmitter.prototype.addListener;
 
 /**
  * @param {string} event
  * @param {function(...)} listener
  * @return {events.EventEmitter}
  */
-events.EventEmitter.prototype.on = function(event, listener) {};
+events.EventEmitter.prototype.on;
 
 /**
  * @param {string} event
  * @param {function(...)} listener
  * @return {events.EventEmitter}
  */
-events.EventEmitter.prototype.once = function(event, listener) {};
+events.EventEmitter.prototype.once;
 
 /**
  * @param {string} event
  * @param {function(...)} listener
  * @return {events.EventEmitter}
  */
-events.EventEmitter.prototype.removeListener = function(event, listener) {};
+events.EventEmitter.prototype.removeListener;
 
 /**
  * @param {string=} event
  * @return {events.EventEmitter}
  */
-events.EventEmitter.prototype.removeAllListeners = function(event) {};
+events.EventEmitter.prototype.removeAllListeners;
 
 /**
  * @param {number} n
+ * @return {void}
  */
-events.EventEmitter.prototype.setMaxListeners = function(n) {};
+events.EventEmitter.prototype.setMaxListeners;
 
 /**
  * @param {string} event
  * @return {Array.<function(...)>}
  */
-events.EventEmitter.prototype.listeners = function(event) {};
+events.EventEmitter.prototype.listeners;
 
 /**
  * @param {string} event
  * @param {...*} var_args
  * @return {boolean}
  */
-events.EventEmitter.prototype.emit = function(event, var_args) {};
+events.EventEmitter.prototype.emit;
 
 // Undocumented
 
@@ -100,5 +100,8 @@ events.usingDomains;
 /**
  * @param {events.EventEmitter} emitter
  * @param {string} type
+ * @return {void}
  */
-events.EventEmitter.listenerCount = function(emitter, type) {};
+events.EventEmitter.listenerCount;
+
+module.exports = events;

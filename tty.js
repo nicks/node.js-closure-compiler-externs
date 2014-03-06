@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's tty module. Depends on the net module.
  * @see http://nodejs.org/api/tty.html
  * @see https://github.com/joyent/node/blob/master/lib/tty.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,10 @@
  END_NODE_INCLUDE
  */
 
+var net = require('net');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var tty = {};
 
@@ -37,12 +38,13 @@ var tty = {};
  * @param {*} fd
  * @return {boolean}
  */
-tty.isatty = function(fd) {};
+tty.isatty;
 
 /**
  * @param {boolean} mode
+ * @return {void}
  */
-tty.setRawMode = function(mode) {};
+tty.setRawMode;
 
 /**
  * @constructor
@@ -57,8 +59,9 @@ tty.ReadStream.prototype.isRaw;
 
 /**
  * @param {boolean} mode
+ * @return {void}
  */
-tty.ReadStream.prototype.setRawMode = function(mode) {};
+tty.ReadStream.prototype.setRawMode;
 
 /**
  * @constructor
@@ -75,3 +78,5 @@ tty.WriteStream.prototype.columns;
  * @type {number}
  */
 tty.WriteStream.prototype.rows;
+
+module.exports = tty;

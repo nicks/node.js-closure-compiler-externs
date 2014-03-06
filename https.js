@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's https module. Depends on the tls module.
  * @see http://nodejs.org/api/https.html
  * @see https://github.com/joyent/node/blob/master/lib/https.js
- * @externs
  */
 
 /**
@@ -27,6 +26,10 @@ var https = require('https');
 END_NODE_INCLUDE
  */
 
+var http = require('http');
+var tls = require('tls');
+
+/** @const */
 var https = {};
 
 /**
@@ -37,22 +40,25 @@ https.Server = function() {};
 
 /**
  * @param {...*} var_args
+ * @return {void}
  */
-https.Server.prototype.listen = function(var_args) {};
+https.Server.prototype.listen;
 
 /**
  * @param {function()=} callback
+ * @return {void}
  */
-https.Server.prototype.close = function(callback) {};
+https.Server.prototype.close;
 
 /**
  * @param {tls.CreateOptions} options
  * @param {function(http.IncomingMessage, http.ServerResponse)=} requestListener
+ * @return {!https.Server}
  */
-https.createServer = function(options, requestListener) {};
+https.createServer;
 
 /**
- * @typedef {{host: ?string, hostname: ?string, port: ?number, method: ?string, path: ?string, headers: ?Object.<string,string>, auth: ?string, agent: ?(https.Agent|boolean), pfx: ?(string|buffer.Buffer), key: ?(string|buffer.Buffer), passphrase: ?string, cert: ?(string|buffer.Buffer), ca: ?Array.<string>, ciphers: ?string, rejectUnauthorized: ?boolean}}
+ * @typedef {{host: ?string, hostname: ?string, port: ?number, method: ?string, path: ?string, headers: ?Object.<string,string>, auth: ?string, agent: ?(https.Agent|boolean), pfx: ?(string|Buffer), key: ?(string|Buffer), passphrase: ?string, cert: ?(string|Buffer), ca: ?Array.<string>, ciphers: ?string, rejectUnauthorized: ?boolean}}
  */
 https.ConnectOptions;
 
@@ -61,14 +67,14 @@ https.ConnectOptions;
  * @param {function(http.IncomingMessage)} callback
  * @return {http.ClientRequest}
  */
-https.request = function(options, callback) {};
+https.request;
 
 /**
  * @param {https.ConnectOptions|string} options
  * @param {function(http.IncomingMessage)} callback
  * @return {http.ClientRequest}
  */
-https.get = function(options, callback) {};
+https.get;
 
 /**
  * @constructor
@@ -80,3 +86,5 @@ https.Agent = function() {};
  * @type {https.Agent}
  */
 https.globalAgent;
+
+module.exports = https;

@@ -17,7 +17,6 @@
 /**
  * @fileoverview Definitions for node's os module.
  * @see http://nodejs.org/api/os.html
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -26,68 +25,69 @@
  var os = require('os');
  END_NODE_INCLUDE
  */
-    
+
+/** @const */
 var os = {};
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.tmdDir = function() {};
+os.tmdDir;
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.hostname = function() {};
+os.hostname;
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.type = function() {};
+os.type;
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.platform = function() {};
+os.platform;
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.arch = function() {};
+os.arch;
 
 /**
  * @return {string}
  * @nosideeffects
  */
-os.release = function() {};
+os.release;
 
 /**
  * @return {number}
  * @nosideeffects
  */
-os.uptime = function() {};
+os.uptime;
 
 /**
  * @return {Array.<number>}
  * @nosideeffects
  */
-os.loadavg = function() {};
+os.loadavg;
 
 /**
  * @return {number}
  * @nosideeffects
  */
-os.totalmem = function() {};
+os.totalmem;
 
 /**
  * @return {number}
  * @nosideeffects
  */
-os.freemem = function() {};
+os.freemem;
 
 /**
  * @typedef {{model: string, speed: number, times: {user: number, nice: number, sys: number, idle: number, irg: number}}}
@@ -98,7 +98,7 @@ var osCpusInfo;
  * @return {Array.<osCpusInfo>}
  * @nosideeffects
  */
-os.cpus = function() {};
+os.cpus;
 
 /**
  * @typedef {{address: string, family: string, internal: boolean}}
@@ -109,9 +109,11 @@ var osNetworkInterfacesInfo;
  * @return {Object.<string,osNetworkInterfacesInfo>}
  * @nosideeffects
  */
-os.networkInterfaces = function() {};
+os.networkInterfaces;
 
 /**
  * @type {string}
  */
 os.EOL;
+
+module.exports = os;

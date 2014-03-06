@@ -18,7 +18,6 @@
  * @fileoverview Definitions for node's zlib module. Depends on the events and buffer modules.
  * @see http://nodejs.org/api/zlib.html
  * @see https://github.com/joyent/node/blob/master/lib/zlib.js
- * @externs
  * @author Daniel Wirtz <dcode@dcode.io>
  */
 
@@ -28,8 +27,10 @@
  END_NODE_INCLUDE
  */
 
+var stream = require('stream');
+
 /**
- * @type {Object.<string,*>}
+ * @const
  */
 var zlib = {};
 
@@ -101,86 +102,93 @@ zlib.Unzip = function(options) {};
  * @param {zlib.Options} options
  * @return {zlib.Gzip}
  */
-zlib.createGzip = function(options) {};
+zlib.createGzip;
 
 /**
  * @param {zlib.Options} options
  * @return {zlib.Gunzip}
  */
-zlib.createGunzip = function(options) {};
+zlib.createGunzip;
 
 /**
  * @param {zlib.Options} options
  * @return {zlib.Deflate}
  */
-zlib.createDeflate = function(options) {};
+zlib.createDeflate;
 /**
  * @param {zlib.Options} options
  * @return {zlib.Inflate}
  */
-zlib.createInflate = function(options) {};
+zlib.createInflate;
 
 /**
  * @param {zlib.Options} options
  * @return {zlib.DeflateRaw}
  */
-zlib.createDeflateRaw = function(options) {};
+zlib.createDeflateRaw;
 
 /**
  * @param {zlib.Options} options
  * @return {zlib.InflateRaw}
  */
-zlib.createInflateRaw = function(options) {};
+zlib.createInflateRaw;
 
 /**
  * @param {zlib.Options} options
  * @return {zlib.Unzip}
  */
-zlib.createUnzip = function(options) {};
+zlib.createUnzip;
 
 
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.deflate = function(buf, callback) {};
+zlib.deflate;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.deflateRaw = function(buf, callback) {};
+zlib.deflateRaw;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.gzip = function(buf, callback) {};
+zlib.gzip;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.gunzip = function(buf, callback) {};
+zlib.gunzip;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.inflate = function(buf, callback) {};
+zlib.inflate;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.inflateRaw = function(buf, callback) {};
+zlib.inflateRaw;
 
 /**
- * @param {string|buffer.Buffer} buf
+ * @param {string|Buffer} buf
  * @param {function(...)} callback
+ * @return {void}
  */
-zlib.unzip = function(buf, callback) {};
+zlib.unzip;
 
 
 
@@ -381,3 +389,5 @@ zlib.Z_DEFLATED = 8;
  * @const
  */
 zlib.Z_NULL = 0;
+
+module.exports = zlib;
